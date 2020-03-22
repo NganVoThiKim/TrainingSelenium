@@ -8,5 +8,9 @@ namespace TestSelenium
 {
     public class Class1
     {
+        void run()
+        {
+            //TODO
+        }
     }
 }
