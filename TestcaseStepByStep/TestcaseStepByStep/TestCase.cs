@@ -15,10 +15,10 @@ namespace TestcaseStepByStep
         {
             var login = new LoginPage();
             login.Login_to_DMSpro();
-             var homePage = new HomePage();
-            homePage.Open_dialog_with_name();
+            var homePage = new HomePage();
+            homePage.Open_dialog_with_name(login.driver);
             var regionPage = new RegionPage();
-            regionPage.Check_something();
+            regionPage.Check_something(login.driver);
         }
     }
 }
