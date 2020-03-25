@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TestcaseStepByStep
 {
-    class HomePage
+    class HomePage:CommonMethod
     {
         public void Open_dialog_with_name(IWebDriver _driver)
         {
@@ -16,24 +16,28 @@ namespace TestcaseStepByStep
             //IWeb_driver _driver = new Chrome_driver(options);
             //_driver.Navigate().GoToUrl("https://dmscoreqas.myanmar-brewery.com/dispatcher/");
             //System.Threading.Thread.Sleep(10000);
-            IWebElement btnClose;
-            btnClose = _driver.FindElement(By.XPath("//div[div/span[@id='ui-id-2']]//button[@class='c1']"));
-            btnClose.Click();
-            IWebElement btnCancel;
+            IWebElement btnCloseWarning;
+            btnCloseWarning = _driver.FindElement(By.XPath(Locator.WARNING_CLOSE_BUTTON));
+            //btnCloseWarning.Click();
+            ClickOnButton(btnCloseWarning);
+            IWebElement btnCancelSelectBranch;
             System.Threading.Thread.Sleep(2000);
-            btnCancel = _driver.FindElement(By.XPath("//div[div/span[@id='ui-id-23']]//button[@class='c1320000002']"));
-            btnCancel.Click();
-            System.Threading.Thread.Sleep(2000);
+            btnCancelSelectBranch = _driver.FindElement(By.XPath(Locator.SELECTBRANCH_CANCEL_BUTTON));
+            //btnCancelSelectBranch.Click();
+            ClickOnButton(btnCancelSelectBranch);
+            //System.Threading.Thread.Sleep(2000);
             IWebElement btnCloseMess;
             System.Threading.Thread.Sleep(2000);
-            btnCloseMess = _driver.FindElement(By.XPath("//div[div/span[@id='ui-id-14']]//span[@class='ui-button-icon ui-icon ui-icon-closethick']"));
+            btnCloseMess = _driver.FindElement(By.XPath(Locator.MESSAGELOG_CLOSE_BUTTON));
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            btnCloseMess.Click();
-
-            IWebElement btnSearchMenu;
-            btnSearchMenu = _driver.FindElement(By.CssSelector("input.c1170000007"));
-            btnSearchMenu.SendKeys(Keys.Control + Keys.F3);
-            btnSearchMenu.Click();
+            //btnCloseMess.Click();
+            ClickOnButton(btnCloseMess);
+            IWebElement txtSearchMenu;
+            txtSearchMenu = _driver.FindElement(By.CssSelector(Locator.SEARCHMENU_TEXTBOX));
+            //txtSearchMenu.SendKeys(Keys.Control + Keys.F3);
+            SendKeys(txtSearchMenu, Keys.Control + Keys.F3);
+            //txtSearchMenu.Click();
+            ClickOnButton(txtSearchMenu);
         }
     }
 }

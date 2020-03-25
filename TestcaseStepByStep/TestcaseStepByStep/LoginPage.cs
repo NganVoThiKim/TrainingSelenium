@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TestcaseStepByStep
 {
-    public class LoginPage
+    public class LoginPage:CommonMethod
     {       
         public ChromeOptions options;
         public IWebDriver driver;
@@ -31,18 +31,22 @@ namespace TestcaseStepByStep
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             IWebElement cbxCompany;
-            cbxCompany = driver.FindElement(By.CssSelector("select#sbo_company"));
+            cbxCompany = driver.FindElement(By.CssSelector(Locator.COMPANY_DROPDOWN));
             SelectElement DropdownOptions = new SelectElement(cbxCompany);
-            DropdownOptions.SelectByValue("MBL");
+            //DropdownOptions.SelectByValue("MBL");
+            SelectValueOfDropdown(DropdownOptions,"MBL");
             IWebElement user;
-            user = driver.FindElement(By.CssSelector("input#sbo_user"));
-            user.SendKeys("qc07");
+            user = driver.FindElement(By.CssSelector(Locator.USER_TEXTBOX));
+            //user.SendKeys("qc07");
+            SendKeys(user, "qc07");
             IWebElement pass;
-            pass = driver.FindElement(By.CssSelector("input#sbo_password"));
-            pass.SendKeys("123456");
+            pass = driver.FindElement(By.CssSelector(Locator.PASSWORD_TEXTBOX));
+            //pass.SendKeys("123456");
+            SendKeys(pass, "123456");
             IWebElement btnLogOn;
-            btnLogOn = driver.FindElement(By.CssSelector("input#logon_sbo_btn"));
-            btnLogOn.Click();
+            btnLogOn = driver.FindElement(By.CssSelector(Locator.LOGIN_BUTTON));
+            //btnLogOn.Click();
+            ClickOnButton(btnLogOn);
         }
     }
 }

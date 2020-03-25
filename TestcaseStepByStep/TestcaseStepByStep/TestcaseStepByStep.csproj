@@ -61,7 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonMethod.cs" />
     <Compile Include="HomePage.cs" />
+    <Compile Include="Locator.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="RegionPage.cs" />
     <Compile Include="TestCase.cs" />
