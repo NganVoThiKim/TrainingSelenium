@@ -10,6 +10,7 @@ namespace TestcaseStepByStep
     {
         //Login page
         public const string COMPANY_DROPDOWN = "select#sbo_company";
+
         public const string USER_TEXTBOX = "input#sbo_user";
         public const string PASSWORD_TEXTBOX = "input#sbo_password";
         public const string LOGIN_BUTTON = "input#logon_sbo_btn";
